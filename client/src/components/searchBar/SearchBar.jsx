@@ -21,14 +21,18 @@ export default function SearchBar({onSearch}) {
    //
    function handleChange(e){
       setId(e.target.value)
-      console.log(e.target.value)
+   }
+
+   const handleClick = () => {
+      onSearch(id)
+      setId("")
    }
 
    
    return (
       <StyledDiv>
          <input type="search" onChange={(e)=>handleChange(e)} value={id}/>
-         <button onClick={()=>onSearch(id)} >Add Character</button>
+         <button onClick={handleClick} >Add Character</button>
       </StyledDiv>
    );
 }

@@ -12,10 +12,16 @@ color:red;
 `
 
 //Card component
-export default function Card({onClose,status,gender,species,origin,image,name}) {
+export default function Card({onClose,status,gender,species,origin,image,name,id}) {
+
+   const handleClick = () => {
+      console.log(id)
+      onClose(id)
+   }
+
    return (
       <StyledCardDiv>
-         <button onClick={onClose}>X</button>
+         <button onClick={handleClick}>X</button>
          <StyledCardH1>Name:{name}</StyledCardH1>
          <h2>Status:{status}</h2>
          <h2>Gender:{gender}</h2>

@@ -33,14 +33,15 @@ function App() {
     
   }
 
-  if(characters.length===0) {
-    setIsLoading(!isLoading)
+  const onClose = (id) => {
+    const filteredCharacters = characters.filter((character)=> character.id !== id)
+    setCharacters(filteredCharacters)
   }
 
   return (
     <div className="App">
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} isLoading={isLoading}/>
+      <Cards characters={characters} isLoading={isLoading} onClose={onClose}/>
     </div>
   );
 }

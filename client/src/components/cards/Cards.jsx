@@ -13,23 +13,22 @@ const StyledCardsContainer = styled.div`
   align-items:center;
 `
 
-export default function Cards({ characters,isLoading }) {
-
-  console.log(characters)
+export default function Cards({ characters,isLoading,onClose }) {
 
   return (
     <StyledCardsContainer>
-      {isLoading ? <Loader/>  : characters.map((item) => {
+      {characters.map(({id,name,status,species,gender,origin,image}) => {
         return (
           <Card
-            key={item?.id}
-            name={item?.name}
-            status={item?.status}
-            species={item?.species}
-            gender={item?.gender}
-            origin={item?.origin?.name}
-            image={item?.image}
-            onClose={() => window.alert("Emulamos que se cierra la card")}
+            key={id}
+            id={id}
+            name={name}
+            status={status}
+            species={species}
+            gender={gender}
+            origin={origin?.name}
+            image={image}
+            onClose={onClose}
           />
         );
       })
